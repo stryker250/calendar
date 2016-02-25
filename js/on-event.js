@@ -56,6 +56,9 @@ $(document).on('click', '#editEvent-export', function () {
 $(document).on('click', '#chooseCalendar-showCalDAVURL', function () {
 	Calendar.UI.showCalDAVUrl($(this).data('user'), $(this).data('caldav'));
 });
+$(document).on('click', '#public_host', function() {
+	Calendar.UI.changeCalDAVUrl();
+});
 $(document).on('click', '#chooseCalendar-edit', function () {
 	Calendar.UI.Calendar.edit($(this), $(this).data('id'));
 });

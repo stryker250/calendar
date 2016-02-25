@@ -351,9 +351,18 @@ Calendar={
 		},
 		showCalDAVUrl:function(username, calname){
 			$('#caldav_url').val(totalurl + '/' + encodeURIComponent(username) + '/' + calname);
-			$('#caldav_url').show();
-			$("#caldav_url_close").show();
+            $("#caldav_url_entry").show();
 		},
+        changeCalDAVUrl:function() {
+            if ($("#public_host").is(':checked')) {
+                var calDavUrl = $("#caldav_url").val()
+                var newCalDavUrl = calDavUrl.replace(window.location.host, oc_public_host);
+            } else {
+                var calDavUrl = $("#caldav_url").val()
+                var newCalDavUrl = calDavUrl.replace(oc_public_host, window.location.host);
+            }
+            $("#caldav_url").val(newCalDavUrl);
+        },
 		repeat:function(task){
 			if(task=='init'){
 				

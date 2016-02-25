@@ -38,9 +38,13 @@
 				print_unescaped("</li>");
 			}
 		?>
-		<li id="caldav_url_entry">
-			<input style="display:none;width: 78%;float: left;" type="text" id="caldav_url" title="<?php p($l->t("CalDav Link")); ?>">
-			<img id="caldav_url_close" style="float:right;height: 16px;padding:7px;margin-top:3px;cursor:pointer;vertical-align: middle;display: none;" src="<?php p(OCP\Util::imagePath('core', 'actions/delete.svg')) ?>" alt="close"/>
+		<li id="caldav_url_entry" style="display: none;">
+			<input style="width: 78%;float: left;" type="text" id="caldav_url" title="<?php p($l->t("CalDav Link")); ?>">
+			<img id="caldav_url_close" style="float:right;height: 16px;padding:7px;margin-top:3px;cursor:pointer;vertical-align: middle;" src="<?php p(OCP\Util::imagePath('core', 'actions/delete.svg')) ?>" alt="close"/>
+			<?php if (\OC::$server->getConfig()->getSystemValue('behind_vpn', false) == true) { ?>
+                <label for="public_host" style="width: 78%;float: left;" ><?php p($l->t('Public Link')); ?></label>
+                <input type="checkbox"style="float:right;height: 16px;padding:7px;margin-right:4px;margin-top:3px;vertical-align: middle;" id="public_host" name="public_host" value="0"/>
+			<?php } ?>
 		</li>
 	</ul>
 	
